@@ -1,0 +1,14 @@
+aiofiles
+fastapi
+numpy
+opencv-python-headless
+pandas
+pdf2image
+pillow
+pydantic
+pytesseract
+python-multipart
+PyYAML
+pytest
+ultralytics
+uvicorn[standard]

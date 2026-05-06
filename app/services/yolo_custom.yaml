@@ -1,0 +1,41 @@
+targets:
+  panel:
+    - panel
+    - panelboard
+    - pnl
+    - distribution board
+    - db
+  transformer:
+    - transformer
+    - xfmr
+    - tx
+  breaker:
+    - breaker
+    - mcb
+    - mccb
+    - acb
+    - vcb
+    - cb
+  switch:
+    - switch
+    - isolator
+    - selector switch
+    - disconnect
+    - sw
+  equipment:
+    - equipment
+    - ahu
+    - vav
+    - pump
+    - motor
+    - fan
+    - chiller
+    - ups
+    - generator
+  wire:
+    - wire
+    - cable
+    - conduit
+    - feeder
+    - busduct
+    - busway

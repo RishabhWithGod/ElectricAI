@@ -1,7 +1,5 @@
 venv/
 build/
-ios/Pods/
 data/uploads/
-.dart_tool/
 .pytest_cache/
 __pycache__/

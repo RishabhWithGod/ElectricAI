@@ -12,26 +12,19 @@ logging.basicConfig(level=logging.INFO)
 app = FastAPI(
     title="Electrical Drawing BOQ Service",
     version="1.0.0",
-    description="Upload electrical drawing PDFs and generate BOQ outputs from OCR and vision detections.",
 )
 
-# CORS FIX
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-    ],
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Routes
 app.include_router(static_router)
 app.include_router(api_router)
 
-# Local + Railway Run
 if __name__ == "__main__":
     import uvicorn
 

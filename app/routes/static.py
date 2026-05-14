@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from fastapi import APIRouter
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
 
 from app.config import APP_DIR, PROJECT_ROOT
 
@@ -14,5 +14,8 @@ async def index() -> FileResponse:
 
 
 @router.get("/favicon.ico", include_in_schema=False)
-async def favicon() -> FileResponse:
-    return FileResponse(Path(PROJECT_ROOT / "web" / "favicon.png"), media_type="image/png")
+async def favicon():
+    icon_path = Path(PROJECT_ROOT / "web" / "favicon.png")
+    if not icon_path.exists():
+        return Response(status_code=204)
+    return FileResponse(icon_path, media_type="image/png")

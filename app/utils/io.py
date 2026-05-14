@@ -4,8 +4,7 @@ from uuid import uuid4
 import aiofiles
 from fastapi import UploadFile
 
-# Upload directory
-UPLOAD_DIR = Path.cwd() / "data" / "uploads"
+from app.config import UPLOAD_DIR
 
 # Create folder if not exists
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)

@@ -2,6 +2,7 @@ import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.config import PORT
 from app.routes.api import router as api_router
 from app.routes.static import router as static_router
 # from app.routes import upload
@@ -28,4 +29,4 @@ app.include_router(api_router)
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=False)
+    uvicorn.run("app.main:app", host="0.0.0.0", port=PORT, reload=False)

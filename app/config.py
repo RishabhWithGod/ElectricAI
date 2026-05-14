@@ -23,14 +23,22 @@ def _load_dotenv(env_path: Path) -> None:
 
 _load_dotenv(PROJECT_ROOT / ".env")
 
+
+def _project_path(value: str) -> Path:
+    path = Path(value)
+    return path if path.is_absolute() else PROJECT_ROOT / path
+
+
 _env_weights = os.getenv("YOLO_WEIGHTS_PATH")
 DEFAULT_YOLO_WEIGHTS = [
-    Path(_env_weights) if _env_weights else None,
+    _project_path(_env_weights) if _env_weights else None,
+    MODEL_DIR / "electrical_best.pt",
     MODEL_DIR / "electrical_yolov8.pt",
     PROJECT_ROOT / "yolov8n.pt",
 ]
 
 TESSERACT_CMD = os.getenv("TESSERACT_CMD")
+PORT = int(os.getenv("PORT", "8000"))
 PDF_DPI = int(os.getenv("PDF_DPI", "300"))
 YOLO_IMAGE_SIZE = int(os.getenv("YOLO_IMAGE_SIZE", "1280"))
 YOLO_CONFIDENCE = float(os.getenv("YOLO_CONFIDENCE", "0.20"))

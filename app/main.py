@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.routes.api import router as api_router
 from app.routes.static import router as static_router
-from app.routes import upload
+# from app.routes import upload
 
 logging.basicConfig(level=logging.INFO)
 
@@ -22,7 +22,7 @@ app.add_middleware(
 )
 app.include_router(static_router)
 app.include_router(api_router)
-app.include_router(upload.router)
+# app.include_router(upload.router)
 
 
 if __name__ == "__main__":

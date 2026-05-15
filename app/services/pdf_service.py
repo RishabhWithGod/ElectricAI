@@ -6,7 +6,6 @@ import tempfile
 import asyncio
 import cv2
 import numpy as np
-from app.config import PDF_DPI, MAX_PDF_PAGES
 
 def is_image_file(path: str) -> bool:
     return path.lower().endswith((".png", ".jpg", ".jpeg"))
@@ -25,14 +24,5 @@ async def pdf_to_images(path: str) -> List[Image.Image]:
         img = Image.open(path)
         return [preprocess_pdf_image(img)]
     loop = asyncio.get_event_loop()
-    pil_images = await loop.run_in_executor(
-    None,
-    lambda: convert_from_path(
-        path,
-        dpi=PDF_DPI,
-        first_page=1,
-        last_page=MAX_PDF_PAGES,
-        thread_count=1,
-    )
-    )
+    pil_images = await loop.run_in_executor(None, lambda: convert_from_path(path, dpi=300))
     return [preprocess_pdf_image(im) for im in pil_images]

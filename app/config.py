@@ -39,8 +39,8 @@ DEFAULT_YOLO_WEIGHTS = [
 
 TESSERACT_CMD = os.getenv("TESSERACT_CMD")
 PORT = int(os.getenv("PORT", "8000"))
-PDF_DPI = int(os.getenv("PDF_DPI", "180"))
-YOLO_IMAGE_SIZE = int(os.getenv("YOLO_IMAGE_SIZE", "960"))
+PDF_DPI = int(os.getenv("PDF_DPI", "300"))
+YOLO_IMAGE_SIZE = int(os.getenv("YOLO_IMAGE_SIZE", "1280"))
 YOLO_CONFIDENCE = float(os.getenv("YOLO_CONFIDENCE", "0.20"))
 
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
